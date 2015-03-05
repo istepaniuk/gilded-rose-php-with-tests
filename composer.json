@@ -1,6 +1,6 @@
 {
-    "name": "codecop/point-of-sale-exercise",
-    "description": "TDD Exercise following JB Rainsberger's Introduction to TDD, Series Two",
+    "name": "codecop/GildedRose-Kata-PHP",
+    "description": "Starting code for a Testing Code Kata on the Gilded Rose.",
     "license": "BSD",
     "authors": [
         {
