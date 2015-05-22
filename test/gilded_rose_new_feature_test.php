@@ -12,6 +12,10 @@ class GildedRoseNewFeatureTest extends GildedRoseTest {
 
         $this->updateQuality();
 
+        $this->markTestIncomplete(
+                'Feature has not been implemented yet.'
+        );
+
         $this->assertThatQualityIs($this->decreasedBy(2));
     }
 
@@ -22,6 +26,10 @@ class GildedRoseNewFeatureTest extends GildedRoseTest {
 
         $this->updateQuality();
 
+        $this->markTestIncomplete(
+                'Feature has not been implemented yet.'
+        );
+        
         $this->assertThatQualityIs($this->decreasedBy(2 * 2));
     }
 
