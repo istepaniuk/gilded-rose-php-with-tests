@@ -369,7 +369,7 @@ class GildedRoseTest extends PHPUnit_Framework_TestCase {
     /** @var Item */
     private $item;
      
-    /** @var Item */
+    /** @var ItemBuilder */
     protected $create;
 
     function __construct() {
