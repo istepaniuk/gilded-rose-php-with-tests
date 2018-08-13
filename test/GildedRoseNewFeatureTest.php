@@ -2,39 +2,45 @@
 
 namespace Test;
 
-class GildedRoseNewFeatureTest extends GildedRoseTest {
+class GildedRoseNewFeatureTest extends GildedRoseTest
+{
 
     // "Conjured" items degrade in Quality twice as fast as normal items
     /** @test */
-    function shouldDecreaseQualityOfConjuredItemTwiceAsFast() {
+    function shouldDecreaseQualityOfConjuredItemTwiceAsFast()
+    {
         $this->create->conjuredItem()->item();
 
         $this->updateQuality();
 
         $this->markTestIncomplete(
-                'Feature has not been implemented yet.'
+            'Feature has not been implemented yet.'
         );
 
         $this->assertThatQualityIs($this->decreasedBy(2));
     }
 
     // Once the sell by date has passed, Quality degrades twice as fast
+
     /** @test */
-    function shouldDecreaseQualityOfExpiredConjuredItemTwiceAsFast() {
+    function shouldDecreaseQualityOfExpiredConjuredItemTwiceAsFast()
+    {
         $this->create->expired()->conjuredItem()->item();
 
         $this->updateQuality();
 
         $this->markTestIncomplete(
-                'Feature has not been implemented yet.'
+            'Feature has not been implemented yet.'
         );
-        
+
         $this->assertThatQualityIs($this->decreasedBy(2 * 2));
     }
 
     // boundary (The Quality of an item is never negative)
+
     /** @test */
-    function shouldNotDecreaseQualityOfConjuredItemWithOneQualityBelowZero() {
+    function shouldNotDecreaseQualityOfConjuredItemWithOneQualityBelowZero()
+    {
         $this->create->conjuredItem()->ofQuality(1);
 
         $this->updateQuality();
@@ -43,8 +49,10 @@ class GildedRoseNewFeatureTest extends GildedRoseTest {
     }
 
     // boundary
+
     /** @test */
-    function shouldNotDecreaseQualityOfExpiredConjuredItemWithOneQualityBelowZero() {
+    function shouldNotDecreaseQualityOfExpiredConjuredItemWithOneQualityBelowZero()
+    {
         $this->create->expired()->conjuredItem()->ofQuality(1);
 
         $this->updateQuality();
@@ -53,8 +61,10 @@ class GildedRoseNewFeatureTest extends GildedRoseTest {
     }
 
     // boundary
+
     /** @test */
-    function shouldNotDecreaseQualityOfExpiredConjuredItemWithTwoQualityBelowZero() {
+    function shouldNotDecreaseQualityOfExpiredConjuredItemWithTwoQualityBelowZero()
+    {
         $this->create->expired()->conjuredItem()->ofQuality(2);
 
         $this->updateQuality();
@@ -63,8 +73,10 @@ class GildedRoseNewFeatureTest extends GildedRoseTest {
     }
 
     // boundary
+
     /** @test */
-    function shouldNotDecreaseQualityOfExpiredConjuredItemWithThreeQualityBelowZero() {
+    function shouldNotDecreaseQualityOfExpiredConjuredItemWithThreeQualityBelowZero()
+    {
         $this->create->expired()->conjuredItem()->ofQuality(3);
 
         $this->updateQuality();
