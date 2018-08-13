@@ -2,6 +2,8 @@
 
 namespace Test;
 
+use GildedRose\Item;
+
 define("FRESH", 5);
 define("NO_QUALITY", 0);
 define("NAX_QUALITY", 50);

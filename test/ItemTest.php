@@ -2,6 +2,7 @@
 
 namespace Test;
 
+use GildedRose\Item;
 use PHPUnit\Framework\TestCase;
 
 class ItemTest extends TestCase {
@@ -10,14 +11,14 @@ class ItemTest extends TestCase {
      * @test
      */
     function shouldHaveASellInValue() {
-        $this->assertClassHasAttribute("sell_in", "Item");
+        $this->assertClassHasAttribute("sell_in", Item::class);
     }
 
     /**
      * @test
      */
     function shouldHaveAQualityValue() {
-        $this->assertClassHasAttribute("quality", "Item");
+        $this->assertClassHasAttribute("quality", Item::class);
     }
 
     /**
@@ -31,5 +32,4 @@ class ItemTest extends TestCase {
         $item = $itemBuilder->agedBrie()->withSellIn(3)->ofQuality(7);
         assertThat($item->__toString(), is("Aged Brie, 3, 7"));
     }
-
 }

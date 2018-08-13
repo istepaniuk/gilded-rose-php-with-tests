@@ -8,6 +8,24 @@ use PHPUnit\Framework\TestCase;
 
 class GildedRoseTest extends TestCase {
 
+    /** @var Item */
+    private $item;
+
+    /** @var ItemBuilder */
+    protected $create;
+
+    function __construct() {
+        $self = $this;
+        $this->create = new ItemBuilder(
+            function(Item $item) use ($self) {
+                $self->item = $item;
+            }
+        );
+
+        parent::__construct();
+    }
+
+
     // At the end of each day our system lowers both values for every item
     /** @test */
     function shouldDecreaseSellInOfOrdinaryItem() {
@@ -366,22 +384,6 @@ class GildedRoseTest extends TestCase {
         $this->assertThatQualityIs(equalTo(0));
     }
 
-    // --- infrastructure
-
-    /** @var Item */
-    private $item;
-     
-    /** @var ItemBuilder */
-    protected $create;
-
-    function __construct() {
-        $self = $this;
-        $this->create = new ItemBuilder(
-                function(Item $item) use ($self) {
-                    $self->item = $item;
-                }
-        );
-    }
 
     protected function updateQuality() {
         $items = array($this->item);
