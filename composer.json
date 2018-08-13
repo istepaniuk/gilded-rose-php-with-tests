@@ -18,12 +18,11 @@
         }
     },
     "autoload-dev": {
-        "files": ["vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php"]
+        "files": ["vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"]
     },
     "require": {
     },
     "require-dev": {
-        "phpunit/phpunit": "^7",
-        "hamcrest/hamcrest-php": "2.*"
+        "phpunit/phpunit": "^7"
     }
 }

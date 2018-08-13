@@ -63,5 +63,4 @@ abstract class GildedRoseItemTestCase extends TestCase
     {
         assertThat($this->item->sellIn, $matcher);
     }
-
 }

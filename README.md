@@ -1,6 +1,6 @@
 # GildedRose-Kata-PHP
 Starting code for a Testing Code Kata on the Gilded Rose.
-The language is PHP, tested with [PHPUnit](https://phpunit.de/) and [Hamcrest matchers](https://github.com/hamcrest/hamcrest-php).
+The language is PHP, tested with [PHPUnit](https://phpunit.de/).
 
 ## Specification
 Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime location in a
