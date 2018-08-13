@@ -1,6 +1,6 @@
 {
-    "name": "codecop/GildedRose-Kata-PHP",
-    "description": "Starting code for a Testing Code Kata on the Gilded Rose.",
+    "name": "istepaniuk/gilded-rose-php-with-tests",
+    "description": "Starting code for the Gilded Rose kata in PHP",
     "license": "BSD",
     "authors": [
         {
@@ -11,6 +11,12 @@
             "email": "istepaniuk@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Tests\\": "tests/",
+            "GildedRose\\": "src/"
+        }
+    }
     "autoload-dev": {
         "files": ["vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php"]
     },
