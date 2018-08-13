@@ -2,7 +2,7 @@
 
 namespace GildedRose;
 
-final class Item
+class Item
 {
     public $name;
     public $sellIn;
