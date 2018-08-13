@@ -422,7 +422,7 @@ class GildedRoseTest extends TestCase
 
     private function assertThatSellInIs($matcher)
     {
-        assertThat($this->item->sell_in, $matcher);
+        assertThat($this->item->sellIn, $matcher);
     }
 
 }

@@ -15,34 +15,34 @@ final class ItemBuilder
     private $quality;
     private $name;
 
-    function __construct($itemSetter)
+    public function __construct($itemSetter)
     {
         $this->itemSetter = $itemSetter;
         $this->sellIn = self::FRESH;
         $this->quality = 10;
     }
 
-    function ordinaryItem()
+    public function ordinaryItem()
     {
         return $this->named("any ordinary item");
     }
 
-    function agedBrie()
+    public function agedBrie()
     {
         return $this->named("Aged Brie");
     }
 
-    function sulfuras()
+    public function sulfuras()
     {
         return $this->named("Sulfuras, Hand of Ragnaros");
     }
 
-    function backstagePass()
+    public function backstagePass()
     {
         return $this->named("Backstage passes to a TAFKAL80ETC concert");
     }
 
-    function conjuredItem()
+    public function conjuredItem()
     {
         return $this->named("Conjured Mana Cake");
     }
@@ -54,44 +54,44 @@ final class ItemBuilder
         return $this;
     }
 
-    function almostExpired()
+    public function almostExpired()
     {
         return $this->withSellIn(1);
     }
 
-    function justExpired()
+    public function justExpired()
     {
         return $this->withSellIn(0);
     }
 
-    function expired()
+    public function expired()
     {
         return $this->withSellIn(-3);
     }
 
-    function toSellIn($days)
+    public function toSellIn($days)
     {
         return $this->withSellIn($days)->item();
     }
 
-    function withSellIn($days)
+    public function withSellIn($days)
     {
         $this->sellIn = $days;
 
         return $this;
     }
 
-    function ofQuality($number)
+    public function ofQuality($number)
     {
         return $this->withQuality($number)->item();
     }
 
-    function ofNoQuality()
+    public function ofNoQuality()
     {
         return $this->withQuality(self::NO_QUALITY)->item();
     }
 
-    function ofMaxQuality()
+    public function ofMaxQuality()
     {
         return $this->withQuality(self::MAX_QUALITY)->item();
     }
@@ -103,7 +103,7 @@ final class ItemBuilder
         return $this;
     }
 
-    function item()
+    public function item()
     {
         return $this->set($this->build());
     }
