@@ -1,3 +1,0 @@
-<phpunit
-        beStrictAboutTestsThatDoNotTestAnything="false"> <!-- PHPUnit will not consider Hamcrest assertions -->
-</phpunit>

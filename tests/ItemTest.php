@@ -1,6 +1,6 @@
 <?php
 
-namespace Test;
+namespace Tests;
 
 use GildedRose\Item;
 use PHPUnit\Framework\TestCase;

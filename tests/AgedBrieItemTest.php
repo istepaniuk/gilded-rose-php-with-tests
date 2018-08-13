@@ -1,6 +1,6 @@
 <?php
 
-namespace Test;
+namespace Tests;
 
 final class AgedBrieItemTest extends GildedRoseItemTestCase
 {
