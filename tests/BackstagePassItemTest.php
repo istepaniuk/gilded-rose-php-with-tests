@@ -89,7 +89,7 @@ final class BackstagePassItemTest extends GildedRoseItemTestCase
 
         $this->updateQuality();
 
-        $this->assertThatQualityIs(logicalNot(greaterThan(50)));
+        $this->assertThatQualityIsNot(greaterThan(50));
     }
 
     public function test_it_should_not_increase_quality_of_backstage_pass_10_days_before_concert_above_max()
@@ -98,7 +98,7 @@ final class BackstagePassItemTest extends GildedRoseItemTestCase
 
         $this->updateQuality();
 
-        $this->assertThatQualityIs(logicalNot(greaterThan(50)));
+        $this->assertThatQualityIsNot(greaterThan(50));
     }
 
     public function test_it_should_not_increase_quality_of_backstage_pass_shortly_before_concert_above_max()
@@ -107,7 +107,7 @@ final class BackstagePassItemTest extends GildedRoseItemTestCase
 
         $this->updateQuality();
 
-        $this->assertThatQualityIs(logicalNot(greaterThan(50)));
+        $this->assertThatQualityIsNot(greaterThan(50));
     }
 
     // boundary
@@ -118,7 +118,7 @@ final class BackstagePassItemTest extends GildedRoseItemTestCase
 
         $this->updateQuality();
 
-        $this->assertThatQualityIs(logicalNot(greaterThan(50)));
+        $this->assertThatQualityIsNot(greaterThan(50));
     }
 
     // boundary
@@ -129,7 +129,7 @@ final class BackstagePassItemTest extends GildedRoseItemTestCase
 
         $this->updateQuality();
 
-        $this->assertThatQualityIs(logicalNot(greaterThan(50)));
+        $this->assertThatQualityIsNot(greaterThan(50));
     }
 
     // boundary
@@ -140,7 +140,7 @@ final class BackstagePassItemTest extends GildedRoseItemTestCase
 
         $this->updateQuality();
 
-        $this->assertThatQualityIs(logicalNot(greaterThan(50)));
+        $this->assertThatQualityIsNot(greaterThan(50));
     }
 
     // boundary

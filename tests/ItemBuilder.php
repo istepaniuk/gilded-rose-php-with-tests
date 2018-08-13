@@ -15,112 +15,112 @@ final class ItemBuilder
     private $quality;
     private $name;
 
-    public function __construct($itemSetter)
+    public function __construct(callable $itemSetter)
     {
         $this->itemSetter = $itemSetter;
         $this->sellIn = self::FRESH;
         $this->quality = 10;
     }
 
-    public function ordinaryItem()
+    public function ordinaryItem(): self
     {
         return $this->named("any ordinary item");
     }
 
-    public function agedBrie()
+    public function agedBrie(): self
     {
         return $this->named("Aged Brie");
     }
 
-    public function sulfuras()
+    public function sulfuras(): self
     {
         return $this->named("Sulfuras, Hand of Ragnaros");
     }
 
-    public function backstagePass()
+    public function backstagePass(): self
     {
         return $this->named("Backstage passes to a TAFKAL80ETC concert");
     }
 
-    public function conjuredItem()
+    public function conjuredItem(): self
     {
         return $this->named("Conjured Mana Cake");
     }
 
-    private function named(string $itemName)
+    private function named(string $itemName): self
     {
         $this->name = $itemName;
 
         return $this;
     }
 
-    public function almostExpired()
+    public function almostExpired(): self
     {
         return $this->withSellIn(1);
     }
 
-    public function justExpired()
+    public function justExpired(): self
     {
         return $this->withSellIn(0);
     }
 
-    public function expired()
+    public function expired(): self
     {
         return $this->withSellIn(-3);
     }
 
-    public function toSellIn($days)
+    public function toSellIn($days): Item
     {
         return $this->withSellIn($days)->item();
     }
 
-    public function withSellIn($days)
+    public function withSellIn($days): self
     {
         $this->sellIn = $days;
 
         return $this;
     }
 
-    public function ofQuality($number)
+    public function ofQuality($number): Item
     {
         return $this->withQuality($number)->item();
     }
 
-    public function ofNoQuality()
+    public function ofNoQuality(): Item
     {
         return $this->withQuality(self::NO_QUALITY)->item();
     }
 
-    public function ofMaxQuality()
+    public function ofMaxQuality(): Item
     {
         return $this->withQuality(self::MAX_QUALITY)->item();
     }
 
-    private function withQuality($number)
+    private function withQuality($number): ItemBuilder
     {
         $this->quality = $number;
 
         return $this;
     }
 
-    public function item()
+    public function item(): Item
     {
         return $this->set($this->build());
     }
 
-    private function build()
+    private function build(): Item
     {
         return new Item($this->name, $this->sellIn, $this->quality);
     }
 
-    private function set(Item $item)
+    private function set(Item $item): Item
     {
-        $this->itemSetter->__invoke($item);
+        call_user_func($this->itemSetter, $item);
 
         return $item;
     }
 
-    public function initialQuality()
+    public function initialQuality(): int
     {
         return $this->quality;
     }

@@ -35,7 +35,7 @@ final class ConjuredItemTest extends GildedRoseItemTestCase
 
         $this->updateQuality();
 
-        $this->assertThatQualityIs(logicalNot($this->negative()));
+        $this->assertThatQualityIsNot($this->negative());
     }
 
     // boundary
@@ -45,7 +45,7 @@ final class ConjuredItemTest extends GildedRoseItemTestCase
 
         $this->updateQuality();
 
-        $this->assertThatQualityIs(logicalNot($this->negative()));
+        $this->assertThatQualityIsNot($this->negative());
     }
 
     // boundary
@@ -55,7 +55,7 @@ final class ConjuredItemTest extends GildedRoseItemTestCase
 
         $this->updateQuality();
 
-        $this->assertThatQualityIs(logicalNot($this->negative()));
+        $this->assertThatQualityIsNot($this->negative());
     }
 
     // boundary
@@ -65,6 +65,6 @@ final class ConjuredItemTest extends GildedRoseItemTestCase
 
         $this->updateQuality();
 
-        $this->assertThatQualityIs(logicalNot($this->negative()));
+        $this->assertThatQualityIsNot($this->negative());
     }
 }

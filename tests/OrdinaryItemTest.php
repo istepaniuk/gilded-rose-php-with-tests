@@ -65,7 +65,7 @@ final class OrdinaryItemTest extends GildedRoseItemTestCase
 
         $this->updateQuality();
 
-        $this->assertThatQualityIs(logicalNot($this->negative()));
+        $this->assertThatQualityIsNot($this->negative());
     }
 
     public function test_it_should_not_decrease_quality_of_expired_ordinary_item_with_no_quality_below_zero()
@@ -74,7 +74,7 @@ final class OrdinaryItemTest extends GildedRoseItemTestCase
 
         $this->updateQuality();
 
-        $this->assertThatQualityIs(logicalNot($this->negative()));
+        $this->assertThatQualityIsNot($this->negative());
     }
 
     // boundary
@@ -84,7 +84,7 @@ final class OrdinaryItemTest extends GildedRoseItemTestCase
 
         $this->updateQuality();
 
-        $this->assertThatQualityIs(logicalNot($this->negative()));
+        $this->assertThatQualityIsNot($this->negative());
     }
 
     // boundary

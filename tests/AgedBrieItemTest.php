@@ -54,7 +54,7 @@ final class AgedBrieItemTest extends GildedRoseItemTestCase
 
         $this->updateQuality();
 
-        $this->assertThatQualityIs(logicalNot(greaterThan(50)));
+        $this->assertThatQualityIsNot(greaterThan(50));
     }
 
     public function test_it_should_not_increase_quality_of_expired_aged_brie_with_max_quality_above_max()
@@ -63,7 +63,7 @@ final class AgedBrieItemTest extends GildedRoseItemTestCase
 
         $this->updateQuality();
 
-        $this->assertThatQualityIs(logicalNot(greaterThan(50)));
+        $this->assertThatQualityIsNot(greaterThan(50));
     }
 
     // boundary
@@ -73,7 +73,7 @@ final class AgedBrieItemTest extends GildedRoseItemTestCase
 
         $this->updateQuality();
 
-        $this->assertThatQualityIs(logicalNot(greaterThan(50))); // variant (1a)
+        $this->assertThatQualityIsNot(greaterThan(50)); // variant (1a)
         $this->assertThatQualityIs($this->maximal()); // variant (1b)
     }
 
