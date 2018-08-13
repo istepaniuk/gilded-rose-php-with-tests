@@ -1,10 +1,12 @@
 <?php
 
-require_once 'gilded_rose.php';
-require_once 'item_builder.php';
+namespace Test;
 
-// 39 test cases
-class GildedRoseTest extends PHPUnit_Framework_TestCase {
+use GildedRose\GildedRose;
+use GildedRose\Item;
+use PHPUnit\Framework\TestCase;
+
+class GildedRoseTest extends TestCase {
 
     // At the end of each day our system lowers both values for every item
     /** @test */

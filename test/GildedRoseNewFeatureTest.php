@@ -1,8 +1,7 @@
 <?php
 
-require_once 'gilded_rose_test.php';
+namespace Test;
 
-// 39 test cases + 6 new test cases = 45 test cases
 class GildedRoseNewFeatureTest extends GildedRoseTest {
 
     // "Conjured" items degrade in Quality twice as fast as normal items

@@ -1,9 +1,10 @@
 <?php
 
-require_once 'gilded_rose.php';
-require_once 'item_builder.php';
+namespace Test;
 
-class ItemTest extends PHPUnit_Framework_TestCase {
+use PHPUnit\Framework\TestCase;
+
+class ItemTest extends TestCase {
 
     /**
      * @test

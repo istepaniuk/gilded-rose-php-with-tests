@@ -16,7 +16,7 @@
             "Tests\\": "tests/",
             "GildedRose\\": "src/"
         }
-    }
+    },
     "autoload-dev": {
         "files": ["vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php"]
     },

@@ -1,5 +1,7 @@
 <?php
 
+namespace Test;
+
 define("FRESH", 5);
 define("NO_QUALITY", 0);
 define("NAX_QUALITY", 50);
