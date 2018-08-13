@@ -2,19 +2,16 @@
 
 namespace Test;
 
-final class GildedRoseNewFeatureTest extends GildedRoseTest
+final class ConjuredItemTest extends GildedRoseItemTestCase
 {
-
     // "Conjured" items degrade in Quality twice as fast as normal items
-    public function test_it_should_decrease_quality_of_conjured_item_Twice_As_Fast()
+    public function test_it_should_decrease_quality_of_conjured_item_twice_as_fast()
     {
+        $this->markTestIncomplete('Feature has not been implemented yet.');
+
         $this->itemBuilder->conjuredItem()->item();
 
         $this->updateQuality();
-
-        $this->markTestIncomplete(
-            'Feature has not been implemented yet.'
-        );
 
         $this->assertThatQualityIs($this->decreasedBy(2));
     }
@@ -22,13 +19,11 @@ final class GildedRoseNewFeatureTest extends GildedRoseTest
     // Once the sell by date has passed, Quality degrades twice as fast
     public function test_it_should_decrease_quality_of_expired_conjured_item_twice_as_fast()
     {
+        $this->markTestIncomplete('Feature has not been implemented yet.');
+
         $this->itemBuilder->expired()->conjuredItem()->item();
 
         $this->updateQuality();
-
-        $this->markTestIncomplete(
-            'Feature has not been implemented yet.'
-        );
 
         $this->assertThatQualityIs($this->decreasedBy(2 * 2));
     }
@@ -72,5 +67,4 @@ final class GildedRoseNewFeatureTest extends GildedRoseTest
 
         $this->assertThatQualityIs(not($this->negative()));
     }
-
 }
