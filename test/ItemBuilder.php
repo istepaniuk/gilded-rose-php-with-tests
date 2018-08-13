@@ -13,10 +13,6 @@ final class ItemBuilder
     private $itemSetter;
     private $sellIn;
     private $quality;
-
-    /**
-     * @var string
-     */
     private $name;
 
     function __construct($itemSetter)
@@ -51,7 +47,7 @@ final class ItemBuilder
         return $this->named("Conjured Mana Cake");
     }
 
-    private function named($itemName)
+    private function named(string $itemName)
     {
         $this->name = $itemName;
 

@@ -5,7 +5,7 @@ namespace Test;
 use GildedRose\Item;
 use PHPUnit\Framework\TestCase;
 
-class ItemTest extends TestCase
+final class ItemTest extends TestCase
 {
     function test_it_should_have_a_sell_in_value()
     {
