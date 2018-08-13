@@ -4,25 +4,25 @@ namespace Test;
 
 use GildedRose\Item;
 
-define("FRESH", 5);
-define("NO_QUALITY", 0);
-define("NAX_QUALITY", 50);
-
-class ItemBuilder
+final class ItemBuilder
 {
+    const FRESH = 5;
+    const NO_QUALITY = 0;
+    const MAX_QUALITY = 50;
 
     private $itemSetter;
+    private $sellIn;
+    private $quality;
+
     /**
      * @var string
      */
     private $name;
-    private $sellIn;
-    private $quality;
 
     function __construct($itemSetter)
     {
         $this->itemSetter = $itemSetter;
-        $this->sellIn = FRESH;
+        $this->sellIn = self::FRESH;
         $this->quality = 10;
     }
 
@@ -92,12 +92,12 @@ class ItemBuilder
 
     function ofNoQuality()
     {
-        return $this->withQuality(NO_QUALITY)->item();
+        return $this->withQuality(self::NO_QUALITY)->item();
     }
 
     function ofMaxQuality()
     {
-        return $this->withQuality(NAX_QUALITY)->item();
+        return $this->withQuality(self::MAX_QUALITY)->item();
     }
 
     private function withQuality($number)

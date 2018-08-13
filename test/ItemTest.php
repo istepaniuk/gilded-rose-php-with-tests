@@ -7,26 +7,17 @@ use PHPUnit\Framework\TestCase;
 
 class ItemTest extends TestCase
 {
-    /**
-     * @test
-     */
-    function shouldHaveASellInValue()
+    function test_it_should_have_a_sell_in_value()
     {
         $this->assertClassHasAttribute("sell_in", Item::class);
     }
 
-    /**
-     * @test
-     */
-    function shouldHaveAQualityValue()
+    function test_it_should_have_a_quality_value()
     {
         $this->assertClassHasAttribute("quality", Item::class);
     }
 
-    /**
-     * @test
-     */
-    function shouldDisplayWithNameAndValues()
+    function test_it_should_display_with_name_and_values()
     {
         $itemBuilder = new ItemBuilder(
             function ($item) {

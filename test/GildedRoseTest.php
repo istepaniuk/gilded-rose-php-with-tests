@@ -8,14 +8,12 @@ use PHPUnit\Framework\TestCase;
 
 class GildedRoseTest extends TestCase
 {
-
-    /** @var Item */
     private $item;
 
     /** @var ItemBuilder */
     protected $create;
 
-    function __construct()
+    protected function setUp()
     {
         $self = $this;
         $this->create = new ItemBuilder(
@@ -23,15 +21,10 @@ class GildedRoseTest extends TestCase
                 $self->item = $item;
             }
         );
-
-        parent::__construct();
     }
 
-
     // At the end of each day our system lowers both values for every item
-
-    /** @test */
-    function shouldDecreaseSellInOfOrdinaryItem()
+    public function test_it_should_decrease_sell_in_of_ordinary_item()
     {
         $initialSellIn = 5;
         $this->create->ordinaryItem()->toSellIn($initialSellIn);
@@ -42,8 +35,7 @@ class GildedRoseTest extends TestCase
         $this->assertThatSellInIs(equalTo($initialSellIn - 1)); // variant (1b), specific
     }
 
-    /** @test */
-    function shouldDecreaseQualityOfOrdinaryItem()
+    public function test_it_should_decrease_quality_of_ordinary_item()
     {
         $this->create->ordinaryItem()->item();
 
@@ -53,9 +45,7 @@ class GildedRoseTest extends TestCase
     }
 
     // Once the sell by date has passed, Quality degrades twice as fast
-
-    /** @test */
-    function shouldDecreaseQualityOfExpiredOrdinaryItemTwiceAsFast()
+    public function test_it_should_decrease_quality_of_expired_ordinary_item_twice_as_fast()
     {
         $initialQuality = 13;
         $this->create->expired()->ordinaryItem()->ofQuality($initialQuality);
@@ -66,9 +56,7 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldDecreaseQualityOfOrdinaryItemOnLastDayStillByOne()
+    public function test_it_should_decrease_quality_of_ordinary_item_on_last_day_still_by_one()
     {
         $initialQuality = 9;
         $this->create->almostExpired()->ordinaryItem()->ofQuality($initialQuality);
@@ -79,9 +67,7 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldDecreaseQualityOfOrdinaryItemOnSellDateAlreadyByTwo()
+    public function test_it_should_decrease_quality_of_ordinary_item_on_sell_date_already_by_two()
     {
         $initialQuality = 8;
         $this->create->justExpired()->ordinaryItem()->ofQuality($initialQuality);
@@ -92,9 +78,7 @@ class GildedRoseTest extends TestCase
     }
 
     // The Quality of an item is never negative
-
-    /** @test */
-    function shouldNotDecreaseQualityOfOrdinaryItemBelowZero()
+    public function test_it_should_not_decrease_quality_of_ordinary_item_below_zero()
     {
         $this->create->ordinaryItem()->ofNoQuality();
 
@@ -103,8 +87,7 @@ class GildedRoseTest extends TestCase
         $this->assertThatQualityIs(not($this->negative()));
     }
 
-    /** @test */
-    function shouldNotDecreaseQualityOfExpiredOrdinaryItemWithNoQualityBelowZero()
+    public function test_it_should_not_decrease_quality_of_expired_ordinary_item_with_no_quality_below_zero()
     {
         $this->create->expired()->ordinaryItem()->ofNoQuality();
 
@@ -114,9 +97,7 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldNotDecreaseQualityOfExpiredOrdinaryItemWithOneQualityBelowZero()
+    public function test_it_should_not_decrease_quality_of_expired_ordinary_item_withone_quality_below_zero()
     {
         $this->create->expired()->ordinaryItem()->ofQuality(1);
 
@@ -126,9 +107,7 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldDecreaseQualityOfOrdinaryItemDownToZero()
+    public function test_it_should_decrease_quality_of_ordinary_item_down_to_zero()
     {
         $this->create->ordinaryItem()->ofQuality(1);
 
@@ -138,9 +117,7 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldDecreaseQualityOfExpiredOrdinaryItemDownToZero()
+    public function test_it_should_decrease_quality_of_expired_ordinary_item_down_to_zero()
     {
         $this->create->expired()->ordinaryItem()->ofQuality(2);
 
@@ -150,9 +127,7 @@ class GildedRoseTest extends TestCase
     }
 
     // "Aged Brie" actually increases in Quality the older it gets
-
-    /** @test */
-    function shouldIncreaseQualityOfAgedBrie()
+    public function test_it_should_increase_quality_of_aged_brie()
     {
         $initialQuality = 17;
         $this->create->agedBrie()->ofQuality($initialQuality);
@@ -162,8 +137,7 @@ class GildedRoseTest extends TestCase
         $this->assertThatQualityIs(greaterThan($initialQuality));
     }
 
-    /** @test */
-    function shouldIncreaseQualityOfExpiredAgedBrieTwiceAsFast()
+    public function test_it_should_increase_quality_of_expired_aged_brie_twice_as_fast()
     {
         $initialQuality = 21;
         $this->create->expired()->agedBrie()->ofQuality($initialQuality);
@@ -174,9 +148,7 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldIncreaseQualityOfAgedBrieOnLastDayStillByOne()
+    public function test_it_should_increase_quality_of_aged_brie_on_last_day_still_by_one()
     {
         $initialQuality = 19;
         $this->create->almostExpired()->agedBrie()->ofQuality($initialQuality);
@@ -187,9 +159,7 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldIncreaseQualityOfAgedBrieOnSellDateAlreadyByTwo()
+    public function test_it_should_increase_quality_of_aged_brie_on_sell_date_already_by_two()
     {
         $initialQuality = 18;
         $this->create->justExpired()->agedBrie()->ofQuality($initialQuality);
@@ -200,9 +170,7 @@ class GildedRoseTest extends TestCase
     }
 
     // The Quality of an item is never more than 50
-
-    /** @test */
-    function shouldNotIncreaseQualityOfAgedBrieAboveMax()
+    public function test_it_should_not_increase_quality_of_aged_brie_above_max()
     {
         $this->create->agedBrie()->ofMaxQuality();
 
@@ -211,8 +179,7 @@ class GildedRoseTest extends TestCase
         $this->assertThatQualityIs(not(greaterThan(50)));
     }
 
-    /** @test */
-    function shouldNotIncreaseQualityOfExpiredAgedBrieWithMaxQualityAboveMax()
+    public function test_it_should_not_increase_quality_of_expired_aged_brie_with_max_quality_above_max()
     {
         $this->create->expired()->agedBrie()->ofMaxQuality();
 
@@ -222,9 +189,7 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldNotIncreaseQualityOfExpiredAgedBriedWithAlmostMaxQualityAboveMax()
+    public function test_it_should_not_increase_quality_of_expired_aged_brie_with_almost_max_quality_above_max()
     {
         $this->create->expired()->agedBrie()->ofQuality(49);
 
@@ -235,9 +200,7 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldIncreaseQualityOfAgedBrieUptoMax()
+    public function test_it_should_increase_quality_of_aged_brie_up_to_max()
     {
         $this->create->agedBrie()->ofQuality(49);
 
@@ -247,9 +210,7 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldIncreaseQualityOfExpiredAgedBrieUptoMax()
+    public function test_it_should_increase_quality_of_expired_aged_brie_up_to_max()
     {
         $this->create->expired()->agedBrie()->ofQuality(48);
 
@@ -258,24 +219,21 @@ class GildedRoseTest extends TestCase
         $this->assertThatQualityIs($this->maximal());
     }
 
-    /** @test */
-    function shouldNotIncreaseQualityOfBackstagePassAboveMax()
+    public function test_it_should_not_increase_quality_of_backstage_pass_above_max()
     {
         $this->create->backstagePass()->withSellIn(15)->ofMaxQuality();
         $this->updateQuality();
         $this->assertThatQualityIs(not(greaterThan(50)));
     }
 
-    /** @test */
-    function shouldNotIncreaseQualityOfBackstagePass10DaysBeforeConcertAboveMax()
+    public function test_it_should_not_increase_quality_of_backstage_pass_10_days_before_concert_above_max()
     {
         $this->create->backstagePass()->withSellIn(10)->ofMaxQuality();
         $this->updateQuality();
         $this->assertThatQualityIs(not(greaterThan(50)));
     }
 
-    /** @test */
-    function shouldNotIncreaseQualityOfBackstagePassShortlyBeforeConcertAboveMax()
+    public function test_it_should_not_increase_quality_of_backstage_pass_shortly_before_concert_above_max()
     {
         $this->create->backstagePass()->withSellIn(4)->ofMaxQuality();
         $this->updateQuality();
@@ -283,9 +241,8 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldNotIncreaseQualityOfBackstagePassWithAlmostMaxQuality10DaysBeforeConcertAboveMax()
+    public function test_it_should_not_increase_quality_of_backstage_pass_with_almost_max_quality_10_days_before_concert_above_max(
+    )
     {
         $this->create->backstagePass()->withSellIn(10)->ofQuality(49);
         $this->updateQuality();
@@ -293,9 +250,8 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldNotIncreaseQualityOfBackstagePassWithAlmostMaxQualityShortlyBeforeConcertAboveMax()
+    public function test_it_should_not_increase_quality_of_backstage_pass_with_almost_max_quality_shortly_before_concert_above_max(
+    )
     {
         $this->create->backstagePass()->withSellIn(2)->ofQuality(49);
         $this->updateQuality();
@@ -303,9 +259,8 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldNotIncreaseQualityOfBackstagePassWithNearMaxQualityShortlyBeforeConcertAboveMax()
+    public function test_it_should_not_increase_quality_of_backstage_pass_with_near_max_quality_shortly_before_concert_above_max(
+    )
     {
         $this->create->backstagePass()->withSellIn(1)->ofQuality(48);
         $this->updateQuality();
@@ -313,9 +268,7 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldIncreaseQualityOfBackstagePassUptoMax()
+    public function test_it_should_increase_quality_of_backstage_pass_up_to_max()
     {
         $this->create->backstagePass()->withSellIn(20)->ofQuality(49);
         $this->updateQuality();
@@ -323,9 +276,7 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldIncreaseQualityOfBackstagePass10DaysBeforeConcertUptoMax()
+    public function test_it_should_increase_quality_of_backstage_pass_10_days_before_concert_up_to_max()
     {
         $this->create->backstagePass()->withSellIn(10)->ofQuality(48);
         $this->updateQuality();
@@ -333,9 +284,7 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldIncreaseQualityOfBackstagePassShortlyBeforeConcertUptoMax()
+    public function test_it_should_increase_quality_of_backstage_pass_shortly_before_concert_up_to_max()
     {
         $this->create->backstagePass()->withSellIn(5)->ofQuality(47);
         $this->updateQuality();
@@ -343,9 +292,7 @@ class GildedRoseTest extends TestCase
     }
 
     // "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
-
-    /** @test */
-    function shouldNotDecreaseSellInOfSulfuras()
+    public function test_it_should_not_decrease_sell_in_of_sulfuras()
     {
         $initialSellIn = 5;
         $this->create->sulfuras()->toSellIn($initialSellIn);
@@ -355,8 +302,7 @@ class GildedRoseTest extends TestCase
         $this->assertThatSellInIs(equalTo($initialSellIn));
     }
 
-    /** @test */
-    function shouldNotDecreaseQualityOfSulfuras()
+    public function test_it_should_not_decrease_quality_of_sulfuras()
     {
         $this->create->sulfuras()->item();
 
@@ -365,8 +311,7 @@ class GildedRoseTest extends TestCase
         $this->assertThatQualityIs($this->unchanged());
     }
 
-    /** @test */
-    function shouldNotDecreaseQualityOfExpiredSulfuras()
+    public function test_it_should_not_decrease_quality_of_expired_sulfuras()
     {
         $legendaryQuality = 80;
         $this->create->expired()->sulfuras()->ofQuality($legendaryQuality);
@@ -379,8 +324,7 @@ class GildedRoseTest extends TestCase
     // "Backstage passes" increases in Quality as it's SellIn value approaches;
     // Quality increases by 2 when there are 10 days or less and
     // by 3 when there are 5 days or less but Quality drops to 0 after the concert
-    /** @test */
-    function shouldIncreaseQualityOfBackstagePass()
+    public function test_it_should_increase_quality_of_backstage_pass()
     {
         $this->create->backstagePass()->toSellIn(20);
         $this->updateQuality();
@@ -388,17 +332,14 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldIncreaseQualityOfBackstagePassStillByOne11DaysBeforeConcert()
+    public function test_it_should_increase_quality_of_backstage_pass_still_by_one_11_days_before_concert()
     {
         $this->create->backstagePass()->toSellIn(11);
         $this->updateQuality();
         $this->assertThatQualityIs($this->increasedBy(1));
     }
 
-    /** @test */
-    function shouldIncreaseQualityOfBackstagePassByTwo10DaysBeforeConcert()
+    public function test_it_should_increase_quality_of_backstage_pass_by_two_10_days_before_concert()
     {
         $this->create->backstagePass()->toSellIn(10);
         $this->updateQuality();
@@ -406,17 +347,14 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldIncreaseQualityOfBackstagePassStillByTwo6DaysBeforeConcert()
+    public function test_it_should_increase_quality_of_backstage_pass_still_by_two_6_days_before_concert()
     {
         $this->create->backstagePass()->toSellIn(6);
         $this->updateQuality();
         $this->assertThatQualityIs($this->increasedBy(2));
     }
 
-    /** @test */
-    function shouldIncreaseQualityOfBackstagePassByThreeShortlyBeforeConcert()
+    public function test_it_should_increase_quality_of_backstage_pass_by_three_shortly_before_concert()
     {
         $this->create->backstagePass()->toSellIn(5);
         $this->updateQuality();
@@ -424,17 +362,14 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldIncreaseQualityOfBackstagePassStillByThreeADayBeforeConcert()
+    public function test_it_should_increase_quality_of_backstage_pass_still_by_three_a_day_before_concert()
     {
         $this->create->backstagePass()->toSellIn(1);
         $this->updateQuality();
         $this->assertThatQualityIs($this->increasedBy(3));
     }
 
-    /** @test */
-    function shouldDropQualityOfExpiredBackstagePass()
+    public function test_it_should_drop_quality_of_expired_backstage_pass()
     {
         $this->create->expired()->backstagePass()->item();
         $this->updateQuality();
@@ -442,9 +377,7 @@ class GildedRoseTest extends TestCase
     }
 
     // boundary
-
-    /** @test */
-    function shouldDropQualityOfBackstagePassOnDayOfConcert()
+    public function test_it_should_drop_quality_of_backstage_pass_on_day_of_concert()
     {
         $this->create->justExpired()->backstagePass()->item();
         $this->updateQuality();

@@ -6,8 +6,7 @@ class GildedRoseNewFeatureTest extends GildedRoseTest
 {
 
     // "Conjured" items degrade in Quality twice as fast as normal items
-    /** @test */
-    function shouldDecreaseQualityOfConjuredItemTwiceAsFast()
+    public function test_it_should_decrease_quality_of_conjured_item_Twice_As_Fast()
     {
         $this->create->conjuredItem()->item();
 
@@ -21,9 +20,7 @@ class GildedRoseNewFeatureTest extends GildedRoseTest
     }
 
     // Once the sell by date has passed, Quality degrades twice as fast
-
-    /** @test */
-    function shouldDecreaseQualityOfExpiredConjuredItemTwiceAsFast()
+    public function test_it_should_decrease_quality_of_expired_conjured_item_twice_as_fast()
     {
         $this->create->expired()->conjuredItem()->item();
 
@@ -37,9 +34,7 @@ class GildedRoseNewFeatureTest extends GildedRoseTest
     }
 
     // boundary (The Quality of an item is never negative)
-
-    /** @test */
-    function shouldNotDecreaseQualityOfConjuredItemWithOneQualityBelowZero()
+    public function test_it_should_not_decrease_quality_of_conjured_item_with_one_quality_below_zero()
     {
         $this->create->conjuredItem()->ofQuality(1);
 
@@ -49,9 +44,7 @@ class GildedRoseNewFeatureTest extends GildedRoseTest
     }
 
     // boundary
-
-    /** @test */
-    function shouldNotDecreaseQualityOfExpiredConjuredItemWithOneQualityBelowZero()
+    public function test_it_should_not_decrease_quality_of_expired_conjured_item_with_one_quality_below_zero()
     {
         $this->create->expired()->conjuredItem()->ofQuality(1);
 
@@ -61,9 +54,7 @@ class GildedRoseNewFeatureTest extends GildedRoseTest
     }
 
     // boundary
-
-    /** @test */
-    function shouldNotDecreaseQualityOfExpiredConjuredItemWithTwoQualityBelowZero()
+    public function test_it_should_not_decrease_quality_of_expired_conjured_item_with_two_quality_below_zero()
     {
         $this->create->expired()->conjuredItem()->ofQuality(2);
 
@@ -73,9 +64,7 @@ class GildedRoseNewFeatureTest extends GildedRoseTest
     }
 
     // boundary
-
-    /** @test */
-    function shouldNotDecreaseQualityOfExpiredConjuredItemWithThreeQualityBelowZero()
+    public function test_it_should_not_decrease_quality_of_expired_conjured_item_with_three_quality_below_zero()
     {
         $this->create->expired()->conjuredItem()->ofQuality(3);
 
