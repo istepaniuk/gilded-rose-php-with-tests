@@ -1,16 +1,8 @@
 # GildedRose-Kata-PHP
 Starting code for a Testing Code Kata on the Gilded Rose.
-The language is PHP with [PHPUnit](https://phpunit.de/)
-and [Hamcrest matchers](https://github.com/hamcrest/hamcrest-php).
+The language is PHP, tested with [PHPUnit](https://phpunit.de/) and [Hamcrest matchers](https://github.com/hamcrest/hamcrest-php).
 
-This Kata was originally created by [Terry Hughes](https://twitter.com/TerryHughes).
-[Emily Bache](https://twitter.com/emilybache) translated it to a few other languages.
-She wrote this article ["Writing Good Tests for the Gilded Rose Kata"](http://coding-is-like-cooking.info/2013/03/writing-good-tests-for-the-gilded-rose-kata/)
-about how you could use this kata.
-The original source of the kata is on [her GitHub page](https://github.com/emilybache/GildedRose-Refactoring-Kata).
-
-
-# Specification
+## Specification
 Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime location in a
 prominent city ran by a friendly innkeeper named Allison. We also buy and sell only the finest goods.
 Unfortunately, our goods are constantly degrading in quality as they approach their sell by date. We
@@ -47,5 +39,15 @@ Just for clarification, an item can never have its Quality increase above 50, ho
 legendary item and as such its Quality is 80 and it never alters.
 
 
-### License
+## Acknowledgements
+
+This Kata was originally created by [Terry Hughes](https://twitter.com/TerryHughes).
+[Emily Bache](https://twitter.com/emilybache) translated it to a few other languages.
+She wrote this article ["Writing Good Tests for the Gilded Rose Kata"](http://coding-is-like-cooking.info/2013/03/writing-good-tests-for-the-gilded-rose-kata/)
+about how you could use this kata.
+The original source of the kata is on [her GitHub page](https://github.com/emilybache/GildedRose-Refactoring-Kata).
+
+This repo was forked from [@codecop's](https://github.com/codecop) mercurial repo at https://bitbucket.org/pkofler/gilded-rose-kata-php-setup,
+commits where preserved in this history.
+
 [BSD License](http://opensource.org/licenses/bsd-license.php), see `LICENSE` in repository.
