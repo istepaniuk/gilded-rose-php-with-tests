@@ -25,9 +25,10 @@ Pretty simple, right? Well this is where it gets interesting:
    - Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but
    - Quality drops to 0 after the concert
 
+## Requested changes
 We have recently signed a supplier of conjured items. This requires an update to our system:
 
-	- "Conjured" items degrade in Quality twice as fast as normal items
+ - "Conjured" items degrade in Quality twice as fast as normal items
 
 Feel free to make any changes to the UpdateQuality method and add any new code as long as everything
 still works correctly. However, do not alter the Item class or Items property as those belong to the
