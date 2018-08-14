@@ -31,7 +31,7 @@ We have recently signed a supplier of conjured items. This requires an update to
  
 Note that there are two tests already covering this behavior that had been marked `skipped` (in `ConjuredItemTest`).
 
-Feel free to make any changes to the `updateQuality()` method and add any new code as long as everything still works correctly. However, do not alter the Item class as that code belong to the goblin in the corner who will insta-rage and one-shot you as he does not believe in shared code ownership.
+Feel free to make any changes to the `updateQuality()` method and add any new code as long as everything still works correctly. However, do not alter the Item class as that code belongs to the goblin in the corner who will insta-rage and one-shot you as he does not believe in shared code ownership.
 
 ## Acknowledgements
 
