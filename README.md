@@ -36,11 +36,10 @@ Feel free to make any changes to the `updateQuality()` method and add any new co
 ## Acknowledgements
 
 This Kata was originally created by [Terry Hughes](https://twitter.com/TerryHughes).
-[Emily Bache](https://twitter.com/emilybache) translated it to a few other languages.
-She wrote this article ["Writing Good Tests for the Gilded Rose Kata"](http://coding-is-like-cooking.info/2013/03/writing-good-tests-for-the-gilded-rose-kata/)
-about how you could use this kata.
-The original source of the kata is on [her GitHub page](https://github.com/emilybache/GildedRose-Refactoring-Kata).
+[Emily Bache](https://twitter.com/emilybache) translated it to a [few other languages](https://github.com/emilybache/GildedRose-Refactoring-Kata).
 
-This version was forked from [@codecop's](https://github.com/codecop) mercurial repo at https://bitbucket.org/pkofler/gilded-rose-kata-php-setup, those commits where preserved in this history. Tests where reworked and the code updated to a PHP 7.2 flavor.
+She also wrote this article ["Writing Good Tests for the Gilded Rose Kata"](http://coding-is-like-cooking.info/2013/03/writing-good-tests-for-the-gilded-rose-kata/) about how you could use this kata.
+
+This particular version was forked from [@codecop's](https://github.com/codecop) mercurial repo at https://bitbucket.org/pkofler/gilded-rose-kata-php-setup, those commits where preserved in this history. Tests where reworked and the code updated to a PHP 7.2 flavor.
 
 [BSD License](http://opensource.org/licenses/bsd-license.php), see `LICENSE` in repository.
