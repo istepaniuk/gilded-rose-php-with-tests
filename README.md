@@ -1,4 +1,6 @@
-# GildedRose-Kata-PHP
+# Gilded Rose Kata in PHP
+Empty setup with working tests
+
 Starting code for a Testing Code Kata on the Gilded Rose.
 The language is PHP, tested with [PHPUnit](https://phpunit.de/).
 
