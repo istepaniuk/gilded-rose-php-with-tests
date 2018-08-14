@@ -1,8 +1,6 @@
 # Gilded Rose Kata in PHP
-Empty setup with working tests
-
-Starting code for a Testing Code Kata on the Gilded Rose.
-The language is PHP, tested with [PHPUnit](https://phpunit.de/).
+Starting code for a refactoring and testing code Kata on the Gilded Rose.
+The language is PHP (7.2), tested with [PHPUnit](https://phpunit.de/).
 
 ## Specification
 Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime location in a prominent city ran by a friendly innkeeper named Allison. We also buy and sell only the finest goods.
@@ -43,7 +41,6 @@ She wrote this article ["Writing Good Tests for the Gilded Rose Kata"](http://co
 about how you could use this kata.
 The original source of the kata is on [her GitHub page](https://github.com/emilybache/GildedRose-Refactoring-Kata).
 
-This repo was forked from [@codecop's](https://github.com/codecop) mercurial repo at https://bitbucket.org/pkofler/gilded-rose-kata-php-setup,
-those commits where preserved in this history.
+This version was forked from [@codecop's](https://github.com/codecop) mercurial repo at https://bitbucket.org/pkofler/gilded-rose-kata-php-setup, those commits where preserved in this history. Tests where reworked and the code updated to a PHP 7.2 flavor.
 
 [BSD License](http://opensource.org/licenses/bsd-license.php), see `LICENSE` in repository.
