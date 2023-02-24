@@ -14,7 +14,7 @@ abstract class GildedRoseItemTestCase extends TestCase
     /** @var ItemBuilder */
     protected $itemBuilder;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $self = $this;
         $this->itemBuilder = new ItemBuilder(
